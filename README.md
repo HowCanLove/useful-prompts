@@ -2,9 +2,9 @@
 
 精选 ChatGPT / Claude / Gemini 中文提示词集合 / Curated Chinese AI prompts for ChatGPT / Claude / Gemini / 厳選ChatGPT・Claude・Gemini中国語プロンプト集
 
-🌐 **Live site / 在线访问 / オンライン:** https://howcanlove.github.io/useful-prompts/
+🌐 **Live site / 在线访问 / オンライン:** https://prompts.512347.xyz/
 
-[![screenshot](./screenshot.png)](https://howcanlove.github.io/useful-prompts/)
+[![screenshot](./screenshot.png)](https://prompts.512347.xyz/)
 
 > Built from the [useful-catalog-template](https://github.com/HowCanLove/useful-catalog-template). Sister sites: [useful-software](https://github.com/HowCanLove/useful-software) · [useful-vscode](https://github.com/HowCanLove/useful-vscode).
 

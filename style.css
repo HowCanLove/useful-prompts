@@ -876,3 +876,42 @@ mark {
   max-height: 480px;
   overflow-y: auto;
 }
+
+
+/* ========== sister sites footer (cross-link to other catalogs) ========== */
+.sister-sites {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  font-size: 0.88rem;
+}
+.sister-label {
+  color: var(--text-3);
+  margin-right: 0.3rem;
+}
+.sister-sites a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-2);
+  text-decoration: none;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+.sister-sites a:hover {
+  background: var(--primary);
+  color: white;
+}
+.sister-sites a.current {
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  color: var(--primary);
+  font-weight: 500;
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  pointer-events: none;
+}

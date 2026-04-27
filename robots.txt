@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://howcanlove.github.io/useful-prompts/sitemap.xml
+Sitemap: https://prompts.512347.xyz/sitemap.xml
