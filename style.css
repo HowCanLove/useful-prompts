@@ -926,3 +926,32 @@ mark {
   gap: 0.3rem;
   padding: 0.35rem 0;
 }
+
+
+/* ========== modal scroll artifact fixes ========== */
+/* 1. 提前预留滚动条宽度，避免出现/消失时整个 modal 内容跳动 */
+.modal-content {
+  scrollbar-gutter: stable;
+  /* 让 modal-content 自成 paint 层，scroll 时不影响外面的 backdrop-filter */
+  contain: layout paint;
+}
+
+/* 2. 屏蔽鼠标点击产生的 focus outline（这就是"中间那条白色描边"的来源——
+   当 close / fav 按钮被点中再失焦时，旧版本浏览器会留下短暂的 outline）
+   但保留键盘 tab 的 focus-visible 让无障碍导航仍可见 */
+.modal :focus { outline: none; }
+.modal :focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* 3. 自定义 webkit 滚动条样式，避免亮色滚动条在暗色模态里突兀 */
+.modal-content::-webkit-scrollbar { width: 8px; }
+.modal-content::-webkit-scrollbar-track { background: transparent; }
+.modal-content::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-3) 40%, transparent);
+  border-radius: 4px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--text-3) 70%, transparent);
+}
