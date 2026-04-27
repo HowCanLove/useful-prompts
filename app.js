@@ -600,22 +600,10 @@
       }
     }
 
-    if (Array.isArray(item.media) && item.media.length) {
-      $modalMedia.innerHTML = item.media.map(mediaItemHTML).join('');
-      $modalMedia.hidden = false;
-      $modalMediaEmpty.hidden = true;
-    } else {
-      $modalMedia.innerHTML = '';
-      $modalMedia.hidden = true;
-      const editUrl = 'https://github.com/HowCanLove/useful-software/edit/main/data.js';
-      const noMediaText = state.lang === 'zh'
-        ? `🖼️ 暂无截图或视频。可以 <a href="${editUrl}" target="_blank" rel="noopener">编辑 data.js</a> 给这条加 <code>media</code> 字段。`
-        : state.lang === 'ja'
-          ? `🖼️ スクリーンショット・動画は未登録。<a href="${editUrl}" target="_blank" rel="noopener">data.js</a> を編集して <code>media</code> フィールドを追加できます。`
-          : `🖼️ No screenshots or videos yet. <a href="${editUrl}" target="_blank" rel="noopener">Edit data.js</a> to add a <code>media</code> field for this entry.`;
-      $modalMediaEmpty.innerHTML = noMediaText;
-      $modalMediaEmpty.hidden = false;
-    }
+    // useful-prompts: 提示词不需要截图/视频，永远隐藏 media 区与"暂无截图"占位
+    $modalMedia.innerHTML = '';
+    $modalMedia.style.display = 'none';
+    $modalMediaEmpty.style.display = 'none';
 
     // useful-prompts: 模态框只关心 prompt + 复制，不渲染访问 / 下载按钮
     // 用 style.display 而不是 .hidden，因为 .modal-link-btn { display: inline-flex } 会覆盖 [hidden] 默认样式
