@@ -5,50 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!--
-    {{TODO}} Replace every {{PLACEHOLDER}} below before going live.
-    Search the file for "{{" to find them all.
   -->
-  <meta name="description" content="{{SHORT_SITE_DESCRIPTION}}">
-  <meta name="keywords" content="{{COMMA_SEPARATED_KEYWORDS}}">
-  <meta name="author" content="{{YOUR_GITHUB_USERNAME}}">
-  <meta name="theme-color" content="#667eea">
-  <link rel="canonical" href="https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/">
-  <title>{{SITE_TITLE_FOR_BROWSER_TAB}}</title>
+  <meta name="description" content="精选 AI 提示词集合（中 / EN / 日），按用途分类，附完整模板和一键复制；支持 ChatGPT / Claude / Gemini">
+  <meta name="keywords" content="AI prompt, ChatGPT prompts, Claude prompts, AI 提示词, 中文 prompt, prompt 模板, プロンプト集">
+  <meta name="author" content="HowCanLove">
+  <meta name="theme-color" content="#a855f7">
+  <link rel="canonical" href="https://howcanlove.github.io/useful-prompts/">
+  <title>Useful Prompts · Curated ChatGPT / Claude / Gemini Templates</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 
   <!-- Open Graph (Facebook / WeChat / Telegram / Discord / Slack / LinkedIn) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{{SITE_NAME}}">
-  <meta property="og:title" content="{{SITE_TITLE}}">
-  <meta property="og:description" content="{{SHORT_SITE_DESCRIPTION}}">
-  <meta property="og:url" content="https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/">
-  <meta property="og:image" content="https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/og-image.png">
+  <meta property="og:site_name" content="Useful Prompts">
+  <meta property="og:title" content="Useful Prompts · Curated ChatGPT / Claude / Gemini Templates">
+  <meta property="og:description" content="精选 AI 提示词集合（中 / EN / 日），按用途分类，附完整模板和一键复制；支持 ChatGPT / Claude / Gemini">
+  <meta property="og:url" content="https://howcanlove.github.io/useful-prompts/">
+  <meta property="og:image" content="https://howcanlove.github.io/useful-prompts/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{SITE_NAME}}">
+  <meta property="og:image:alt" content="Useful Prompts">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{SITE_TITLE}}">
-  <meta name="twitter:description" content="{{SHORT_SITE_DESCRIPTION}}">
-  <meta name="twitter:image" content="https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/og-image.png">
+  <meta name="twitter:title" content="Useful Prompts · Curated ChatGPT / Claude / Gemini Templates">
+  <meta name="twitter:description" content="精选 AI 提示词集合（中 / EN / 日），按用途分类，附完整模板和一键复制；支持 ChatGPT / Claude / Gemini">
+  <meta name="twitter:image" content="https://howcanlove.github.io/useful-prompts/og-image.png">
 
   <!-- JSON-LD structured data so Google can render rich results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/",
-    "description": "{{SHORT_SITE_DESCRIPTION}}",
+    "name": "Useful Prompts",
+    "url": "https://howcanlove.github.io/useful-prompts/",
+    "description": "精选 AI 提示词集合（中 / EN / 日），按用途分类，附完整模板和一键复制；支持 ChatGPT / Claude / Gemini",
     "inLanguage": ["en", "zh-CN", "ja"],
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://{{YOUR_USERNAME}}.github.io/{{YOUR_REPO_NAME}}/?q={search_term_string}",
+      "target": "https://howcanlove.github.io/useful-prompts/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
@@ -57,9 +55,9 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="site-title" data-i18n="site.title">🛠️ {{SITE_NAME}}</h1>
-      <p class="site-tagline" data-i18n="site.tagline">{{SITE_TAGLINE}}</p>
-      <a class="header-link" href="https://github.com/{{YOUR_USERNAME}}/{{YOUR_REPO_NAME}}" target="_blank" rel="noopener">
+      <h1 class="site-title" data-i18n="site.title">🛠️ Useful Prompts</h1>
+      <p class="site-tagline" data-i18n="site.tagline">Curated ChatGPT / Claude / Gemini prompts · 一键复制即用</p>
+      <a class="header-link" href="https://github.com/howcanlove/useful-prompts" target="_blank" rel="noopener">
         <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         <span data-i18n="header.github">GitHub</span>
       </a>
@@ -68,17 +66,11 @@
 
   <main class="container">
     <section class="controls">
-      <!--
-        {{TODO}} Update the four os-tab buttons to your primary axis.
-        For browser extensions: Chrome / Firefox / Edge / Cross.
-        For AI prompts: GPT / Claude / Gemini / All.
-        Keep `data-os="..."` matching the values you use in data.js.
-      -->
       <div class="os-tabs" role="tablist">
         <button class="os-tab active" data-os="all">All</button>
-        <button class="os-tab" data-os="windows">🪟 Windows</button>
-        <button class="os-tab" data-os="macos">🍎 macOS</button>
-        <button class="os-tab" data-os="cross">🌐 Cross-platform</button>
+        <button class="os-tab" data-os="windows">🟢 ChatGPT</button>
+        <button class="os-tab" data-os="macos">🟠 Claude</button>
+        <button class="os-tab" data-os="cross">🌐 通用</button>
       </div>
       <button id="favToggle" class="fav-toggle" aria-pressed="false">
         <span id="favToggleLabel">⭐ Favorites (0)</span>

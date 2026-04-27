@@ -562,6 +562,45 @@
     $modalBadges.innerHTML = badgesHTML(item);
     $modalDesc.innerHTML = '<p>' + escapeHtml(descFor(item)).replace(/\n\s*\n/g, '</p><p>') + '</p>';
 
+    // useful-prompts 专属：渲染 prompt 字段（完整提示词）+ 一键复制按钮
+    if (item.prompt) {
+      const promptHtml = `
+        <div class="prompt-block">
+          <div class="prompt-block-head">
+            <span class="prompt-block-title">${escapeHtml(t('prompt.title'))}</span>
+            <button class="prompt-copy-btn" type="button" data-prompt-copy>${escapeHtml(t('prompt.copy'))}</button>
+          </div>
+          <pre class="prompt-block-body"><code id="modalPromptText"></code></pre>
+        </div>
+      `;
+      $modalDesc.insertAdjacentHTML('beforeend', promptHtml);
+      const codeEl = $modalDesc.querySelector('#modalPromptText');
+      if (codeEl) codeEl.textContent = item.prompt;
+      const btn = $modalDesc.querySelector('[data-prompt-copy]');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(item.prompt).then(() => {
+              btn.textContent = t('prompt.copied');
+              btn.classList.add('copied');
+              setTimeout(() => {
+                btn.textContent = t('prompt.copy');
+                btn.classList.remove('copied');
+              }, 1600);
+            }).catch(() => fallbackSelect());
+          } else {
+            fallbackSelect();
+          }
+          function fallbackSelect() {
+            const range = document.createRange();
+            range.selectNode(codeEl);
+            getSelection().removeAllRanges();
+            getSelection().addRange(range);
+          }
+        });
+      }
+    }
+
     if (Array.isArray(item.media) && item.media.length) {
       $modalMedia.innerHTML = item.media.map(mediaItemHTML).join('');
       $modalMedia.hidden = false;
