@@ -474,6 +474,7 @@ function loadCategory() {    try {      const saved = localStorage.getItem(CATEG
         <p class="card-desc">${highlight(descFor(item), state.query)}</p>
         <div class="card-actions">
           <span class="card-hint">👉 ${t('card.openHint')}</span>
+          ${item.prompt ? `<button class="card-copy" type="button" data-no-modal data-copy-idx="${idx}" title="${escapeHtml(t('card.copyTitle'))}">${escapeHtml(t('prompt.copy'))}</button>` : ''}
           ${mediaBadge}
         </div>
       </article>
@@ -534,6 +535,30 @@ function loadCategory() {    try {      const saved = localStorage.getItem(CATEG
         const idx = parseInt(btn.dataset.favIdx, 10);
         const item = CATALOG[idx];
         if (item) toggleFavorite(item);
+      });
+    });
+    // useful-prompts: 卡片上的"📋 复制"按钮直接拷贝 prompt，不开弹窗
+    $grid.querySelectorAll('.card-copy').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const idx = parseInt(btn.dataset.copyIdx, 10);
+        const item = CATALOG[idx];
+        if (!item || !item.prompt) return;
+        const flash = (text, cls) => {
+          btn.textContent = text;
+          if (cls) btn.classList.add(cls);
+          setTimeout(() => {
+            btn.textContent = t('prompt.copy');
+            btn.classList.remove('copied');
+          }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(item.prompt)
+            .then(() => flash(t('prompt.copied'), 'copied'))
+            .catch(() => flash('✗', null));
+        } else {
+          flash('✗', null);
+        }
       });
     });
   }

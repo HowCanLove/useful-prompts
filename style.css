@@ -955,3 +955,23 @@ mark {
 .modal-content::-webkit-scrollbar-thumb:hover {
   background: color-mix(in srgb, var(--text-3) 70%, transparent);
 }
+
+/* useful-prompts: card 上的"📋 复制"按钮（无需开弹窗，直接拷贝） */
+.card-copy {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.32rem 0.75rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+.card-copy:hover { background: var(--primary-hover); }
+.card-copy.copied { background: var(--success); }
+
+/* card-actions 现在有 hint + 复制按钮 + 媒体角标，确保间距合理 */
+.card-actions { gap: 0.5rem; }
