@@ -7,6 +7,7 @@
   const OS_STORAGE_KEY = 'os';
   const FAVORITES_STORAGE_KEY = 'favorites';
   const SORT_STORAGE_KEY = 'sort';
+  const CATEGORY_STORAGE_KEY = 'category';
 
   const state = {
     lang: DEFAULT_LANG,
@@ -279,6 +280,7 @@
   function persistOs() {
     try { localStorage.setItem(OS_STORAGE_KEY, state.os); } catch (e) {}
   }
+function loadCategory() {    try {      const saved = localStorage.getItem(CATEGORY_STORAGE_KEY);      if (saved) state.category = saved;    } catch (e) {}  }  function persistCategory() {    try { localStorage.setItem(CATEGORY_STORAGE_KEY, state.category); } catch (e) {}  }
 
   // ---------- language detection ----------
 
@@ -417,6 +419,7 @@
     $chips.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => {
         state.category = chip.dataset.cat;
+        persistCategory();
         $chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.cat === state.category));
         render();
       });
@@ -690,6 +693,7 @@
   state.os = detectInitialOs();
   loadFavorites();
   loadSort();
+  loadCategory();
   loadVersions();
   $totalCount.textContent = CATALOG.length;
   applyLangToDocument();
