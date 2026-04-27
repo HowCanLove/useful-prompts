@@ -617,20 +617,12 @@
       $modalMediaEmpty.hidden = false;
     }
 
-    // useful-prompts: 不显示"在 AI 里打开"按钮（核心动作是复制）；模态框焦点在 prompt + 复制
-    $modalLink.hidden = true;
-
-    const dl = downloadInfoFor(item);
-    if (false && dl.url) {  // 强制不渲染下载按钮（card 上的复制提示已经替代）
-      $modalDownload.href = dl.url;
-      const versionTag = dl.hasDirect && dl.version ? `  ·  ${t('card.version', { v: dl.version })}` : '';
-      $modalDownload.textContent = `${t('card.download')}${versionTag}`;
-      $modalDownload.title = t(dl.hasDirect ? 'card.downloadTitle' : 'card.downloadFallbackTitle');
-      $modalDownload.classList.toggle('modal-download-fallback', !dl.hasDirect);
-      $modalDownload.hidden = false;
-    } else {
-      $modalDownload.hidden = true;
-    }
+    // useful-prompts: 模态框只关心 prompt + 复制，不渲染访问 / 下载按钮
+    // 用 style.display 而不是 .hidden，因为 .modal-link-btn { display: inline-flex } 会覆盖 [hidden] 默认样式
+    $modalLink.style.display = 'none';
+    $modalDownload.style.display = 'none';
+    // 两个按钮都没了，把它们的父容器（modal-footer）一起隐藏，避免留一条空白分割线
+    if ($modalLink.parentElement) $modalLink.parentElement.style.display = 'none';
 
     updateModalFav();
 
