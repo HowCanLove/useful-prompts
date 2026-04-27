@@ -470,8 +470,7 @@
         </div>
         <p class="card-desc">${highlight(descFor(item), state.query)}</p>
         <div class="card-actions">
-          <a class="card-link" href="${safeUrl}" target="_blank" rel="noopener noreferrer" data-no-modal>${t('card.visit')}</a>
-          ${downloadBtn}
+          <span class="card-hint">👉 ${t('card.openHint')}</span>
           ${mediaBadge}
         </div>
       </article>
@@ -618,11 +617,11 @@
       $modalMediaEmpty.hidden = false;
     }
 
-    $modalLink.href = item.url;
-    $modalLink.textContent = `${t('card.visit')}  ·  ${hostnameFor(item.url)}`;
+    // useful-prompts: 不显示"在 AI 里打开"按钮（核心动作是复制）；模态框焦点在 prompt + 复制
+    $modalLink.hidden = true;
 
     const dl = downloadInfoFor(item);
-    if (dl.url) {
+    if (false && dl.url) {  // 强制不渲染下载按钮（card 上的复制提示已经替代）
       $modalDownload.href = dl.url;
       const versionTag = dl.hasDirect && dl.version ? `  ·  ${t('card.version', { v: dl.version })}` : '';
       $modalDownload.textContent = `${t('card.download')}${versionTag}`;

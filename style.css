@@ -915,3 +915,14 @@ mark {
   border-color: color-mix(in srgb, var(--primary) 30%, transparent);
   pointer-events: none;
 }
+
+/* useful-prompts: card 上的"点开看完整提示词"提示文案（替代之前的访问按钮） */
+.card-hint {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0;
+}
